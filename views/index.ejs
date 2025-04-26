@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head', { seo }); %>
+<body>
+  <%- include('partials/header'); %>
+  
+  <main class="main">
+    <div class="container">
+      <section class="hero">
+        <h1>Download Entire Websites for Offline Use</h1>
+        <p class="subtitle">Save complete websites including all pages, images, and resources with our free online tool.</p>
+      </section>
+      
+      <section class="download-form">
+        <form action="/download" method="POST">
+          <div class="form-group">
+            <label for="url">Website URL</label>
+            <input type="url" id="url" name="url" placeholder="https://example.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="depth">Download Depth</label>
+            <select id="depth" name="depth">
+              <option value="1">Level 1 - Current page only</option>
+              <option value="2">Level 2 - Current page + linked pages</option>
+              <option value="3">Level 3 - Current page + 2 levels deep</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="btn-primary">Download Website</button>
+        </form>
+      </section>
+      
+      <section class="features">
+        <h2>Why Use Our Website Downloader?</h2>
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>Complete Offline Access</h3>
+            <p>Download all website resources including HTML, CSS, JavaScript, and images for offline viewing.</p>
+          </div>
+          <div class="feature">
+            <h3>Multiple Depth Levels</h3>
+            <p>Choose how deep you want to crawl the website to get exactly what you need.</p>
+          </div>
+          <div class="feature">
+            <h3>Fast Processing</h3>
+            <p>Our optimized download engine ensures quick website mirroring.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <%- include('partials/footer'); %>
+  <script src="/js/main.js"></script>
+</body>
+</html>

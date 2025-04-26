@@ -1,0 +1,50 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title><%= seo.title %></title>
+    <meta name="title" content="<%= seo.title %>">
+    <meta name="description" content="<%= seo.description %>">
+    <meta name="keywords" content="<%= seo.keywords %>">
+    <meta name="author" content="<%= seo.author %>">
+    <meta name="theme-color" content="<%= seo.themeColor %>">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="<%= seo.ogType %>">
+    <meta property="og:url" content="<%= seo.canonicalUrl %>">
+    <meta property="og:title" content="<%= seo.title %>">
+    <meta property="og:description" content="<%= seo.description %>">
+    <meta property="og:image" content="<%= seo.imageUrl %>">
+    <% if(seo.fbAppId) { %>
+      <meta property="fb:app_id" content="<%= seo.fbAppId %>">
+    <% } %>
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<%= seo.canonicalUrl %>">
+    <meta property="twitter:title" content="<%= seo.title %>">
+    <meta property="twitter:description" content="<%= seo.description %>">
+    <meta property="twitter:image" content="<%= seo.imageUrl %>">
+    <% if(seo.twitterHandle) { %>
+      <meta property="twitter:creator" content="<%= seo.twitterHandle %>">
+    <% } %>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="<%= seo.canonicalUrl %>">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      <%= seo.structuredData %>
+    </script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Preload important resources -->
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="preload" href="/js/main.js" as="script">
+  </head>

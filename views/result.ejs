@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head', { seo }); %>
+<body>
+  <%- include('partials/header'); %>
+  
+  <main class="main">
+    <div class="container">
+      <section class="result-section">
+        <h1>Download Complete: <%= url %></h1>
+        
+        <div class="result-card">
+          <div class="result-meta">
+            <p><strong>Downloaded Resources:</strong> <%= result.downloaded %></p>
+            <% if(result.errors.length > 0) { %>
+              <p><strong>Errors Encountered:</strong> <%= result.errors.length %></p>
+            <% } %>
+          </div>
+          
+          <a href="<%= downloadLink %>" class="btn-primary" download>Download as ZIP</a>
+        </div>
+        
+        <% if(result.errors.length > 0) { %>
+          <div class="error-list">
+            <h3>Download Errors</h3>
+            <ul>
+              <% result.errors.slice(0, 5).forEach(error => { %>
+                <li>
+                  <p><strong>URL:</strong> <%= error.url %></p>
+                  <p><strong>Error:</strong> <%= error.error %></p>
+                </li>
+              <% }); %>
+              <% if(result.errors.length > 5) { %>
+                <li>...and <%= result.errors.length - 5 %> more errors</li>
+              <% } %>
+            </ul>
+          </div>
+        <% } %>
+        
+        <div class="cta">
+          <h3>Need to download another website?</h3>
+          <a href="/" class="btn-secondary">Start New Download</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <%- include('partials/footer'); %>
+  <script src="/js/main.js"></script>
+</body>
+</html>
